@@ -1,0 +1,36 @@
+### Változók
+@baseUrl = http://localhost:3000
+@token = secret-token
+### 1. Új feladat létrehozása (201)
+POST {{baseUrl}}/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+ "title": "Write API tests",
+ "description": "Cover all CRUD endpoints",
+ "status": "todo"
+}
+### 2. Feladat lekérése (200)
+GET {{baseUrl}}/tasks/1
+Authorization: Bearer {{token}}
+### 3. Feladat módosítása (200)
+PUT {{baseUrl}}/tasks/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+ "title": "Write API tests (updated)",
+ "description": "Cover all CRUD endpoints",
+ "status": "done"
+}
+### 4. Feladat törlése (204)
+DELETE {{baseUrl}}/tasks/1
+Authorization: Bearer {{token}}
+### 5. Hibás kérés: hiányzó title (400)
+POST {{baseUrl}}/tasks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+{
+ "description": "no title"
+}
+### 6. Token nélkül (401)
+GET {{baseUrl}}/tasks/1
