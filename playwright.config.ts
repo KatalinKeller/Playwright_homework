@@ -36,7 +36,6 @@ export default defineConfig({
  },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    channel: 'chrome'
   },
 webServer: {
  command: 'node server.js',
@@ -49,7 +48,9 @@ webServer: {
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+         channel: 'chrome',
+       },
     },
 
     {
