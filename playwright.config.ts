@@ -43,6 +43,7 @@ webServer: {
  url: `${API_URL}/tasks`,
  reuseExistingServer: !process.env['CI'],
  timeout: 30_000,
+ cwd: './tests/API',
  },
   /* Configure projects for major browsers */
   projects: [
