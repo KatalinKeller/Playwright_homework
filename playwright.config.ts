@@ -40,7 +40,7 @@ export default defineConfig({
   },
 webServer: {
  command: 'node server.js',
- url: `${API_URL}/tasks`,
+ url: `${process.env.API_URL || 'http://localhost:3000'}/tasks`,
  reuseExistingServer: !process.env['CI'],
  timeout: 30_000,
  cwd: './tests/API',
